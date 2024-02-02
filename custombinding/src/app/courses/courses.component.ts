@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
 })
 export class CoursesComponent {
 
+  selectedFilter:string='All';
+  searchValue:string='';
+
   courses = [
     { id:101, name:'JavaScript for beginners', author: 'John Heikela', duration: 48, type: 'Free', 
       price: 0.00, ratings: 3.5, image:'assets/courses/course-image-1.jpeg',
@@ -46,5 +49,24 @@ export class CoursesComponent {
     }
   ]
 
+  getTotalCoursesNumber(){
+    return this.courses.length;
+  }
 
+  getTotalFreeCoursesNumber(){
+    return this.courses.filter(course => course.type==='Free').length;
+  }
+
+  getTotalPremiumCoursesNumber(){
+    return this.courses.filter(course => course.type==='Premium').length;
+  }
+
+
+  onFilterChanged(data:string){
+    this.selectedFilter=data;
+  }
+
+  onSearchChanged(data:string){
+    this.searchValue=data;
+  }
 }
