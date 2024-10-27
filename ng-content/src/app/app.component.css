@@ -1,0 +1,10 @@
+.container{
+    background-color: beige;
+    height: auto;
+    width: auto;
+}
+
+.more-products{
+    display: flex;
+    padding: 20px;
+}
